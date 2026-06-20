@@ -23,30 +23,37 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http,
                                                    JwtAuthenticationFilter jwtAuthenticationFilter,
                                                    AuthenticationProvider authenticationProvider) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .headers(headers -> headers.addHeaderWriter(
-                        new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/",
-                                "/test",
-                                "/index.html",
-                                "/login.html",
-                                "/register.html",
-                                "/dashboard.html",
-                                "/css/**",
-                                "/js/**",
-                                "/api/auth/**",
-                                "/h2-console/**"
-                        ).permitAll()
-                        .anyRequest().permitAll()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class));
+
+        http
+            .csrf(AbstractHttpConfigurer::disable)
+            .headers(headers -> headers.addHeaderWriter(
+                    new XFrameOptionsHeaderWriter(
+                            XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
+            .sessionManagement(session ->
+                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                    .requestMatchers(
+                            "/",
+                            "/test",
+                            "/index.html",
+                            "/login.html",
+                            "/register.html",
+                            "/dashboard.html",
+                            "/css/**",
+                            "/js/**",
+                            "/api/auth/**",
+                            "/h2-console/**"
+                    ).permitAll()
+                    .anyRequest().permitAll()
+            )
+            .authenticationProvider(authenticationProvider)
+            .addFilterBefore(jwtAuthenticationFilter,
+                    UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -65,6 +72,7 @@ public class SecurityConfig {
     @Bean
     public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService,
                                                          PasswordEncoder passwordEncoder) {
+
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder);
