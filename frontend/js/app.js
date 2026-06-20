@@ -1,4 +1,4 @@
-const API_BASE = "";
+const API_BASE = "https://agrigenius-backend.onrender.com";
 
 const translations = {
     en: {
@@ -445,7 +445,7 @@ async function apiFetch(path, options = {}, withAuth = true) {
         }
     }
 
-    const response = await fetch(`${API_BASE}${path}`, {
+    const response = await fetch(`${API_BASE}${path}`,   {
         ...options,
         headers
     });
