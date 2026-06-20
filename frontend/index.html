@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGenius | Smart Farming Assistant</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+<nav class="navbar glass-nav">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">AG</span>
+        <span>AgriGenius</span>
+    </a>
+    <div class="nav-actions">
+        <button class="lang-toggle" data-lang-toggle type="button">తెలుగు</button>
+        <a class="nav-link" href="login.html" data-i18n="login">Login</a>
+        <a class="btn btn-primary" href="register.html" data-i18n="register">Register</a>
+    </div>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="eyebrow" data-i18n="homeEyebrow">AI-powered crop care</p>
+            <h1 data-i18n="homeTitle">AgriGenius</h1>
+            <p class="hero-copy" data-i18n="homeCopy">
+                Detect plant disease, get crop advisory, and turn weather into practical field decisions.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary btn-large" href="register.html" data-i18n="startNow">Start now</a>
+                <a class="btn btn-ghost btn-large" href="login.html" data-i18n="login">Login</a>
+            </div>
+        </div>
+        <div class="hero-stats glass-card">
+            <div>
+                <strong>3</strong>
+                <span data-i18n="smartTools">Smart tools</span>
+            </div>
+            <div>
+                <strong>24/7</strong>
+                <span data-i18n="fieldSupport">Field support</span>
+            </div>
+            <div>
+                <strong>2</strong>
+                <span data-i18n="languages">Languages</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-band">
+        <div class="section-heading">
+            <p class="eyebrow" data-i18n="featuresEyebrow">One dashboard</p>
+            <h2 data-i18n="featuresTitle">Crop decisions with less guesswork</h2>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card glass-card">
+                <span class="feature-icon">01</span>
+                <h3 data-i18n="diseaseTitle">Plant Disease Detector</h3>
+                <p data-i18n="diseaseCopy">Upload a leaf photo, preview it, and receive a likely diagnosis with treatment steps.</p>
+            </article>
+            <article class="feature-card glass-card">
+                <span class="feature-icon">02</span>
+                <h3 data-i18n="advisoryTitle">AI Advisory</h3>
+                <p data-i18n="advisoryCopy">Choose soil, season, and crop to get suitable crops, fertilizer, and irrigation tips.</p>
+            </article>
+            <article class="feature-card glass-card">
+                <span class="feature-icon">03</span>
+                <h3 data-i18n="weatherTitle">Weather Guide</h3>
+                <p data-i18n="weatherCopy">Search a city and convert temperature and humidity into farming advice.</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <span>AgriGenius</span>
+    <span data-i18n="footerText">Smart farming support for modern growers.</span>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

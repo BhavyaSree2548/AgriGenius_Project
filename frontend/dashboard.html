@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AgriGenius</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+<nav class="navbar glass-nav compact">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">AG</span>
+        <span>AgriGenius</span>
+    </a>
+    <div class="nav-actions">
+        <button class="lang-toggle" data-lang-toggle type="button">తెలుగు</button>
+        <span class="user-chip" id="userChip">Farmer</span>
+        <button class="btn btn-ghost" id="logoutBtn" type="button" data-i18n="logout">Logout</button>
+    </div>
+</nav>
+
+<main class="dashboard-shell">
+    <section class="dashboard-hero glass-card">
+        <div>
+            <p class="eyebrow" data-i18n="dashboardEyebrow">Smart farming workspace</p>
+            <h1 data-i18n="dashboardTitle">Your AgriGenius Dashboard</h1>
+            <p data-i18n="dashboardCopy">Use plant diagnosis, advisory, and weather guidance from one responsive workspace.</p>
+        </div>
+        <div class="metric-grid">
+            <div>
+                <strong>AI</strong>
+                <span data-i18n="advisoryTitle">AI Advisory</span>
+            </div>
+            <div>
+                <strong>H2</strong>
+                <span data-i18n="database">Database</span>
+            </div>
+            <div>
+                <strong>JWT</strong>
+                <span data-i18n="secure">Secure</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="tool-grid">
+        <article class="tool-card disease-card glass-card">
+            <div class="tool-heading">
+                <span class="tool-number">A</span>
+                <div>
+                    <h2 data-i18n="diseaseTitle">Plant Disease Detector</h2>
+                    <p data-i18n="uploadCopy">Upload a plant image or describe symptoms for clear disease and prevention guidance.</p>
+                </div>
+            </div>
+            <div class="disease-layout">
+                <form id="diseaseForm" class="form-stack">
+                    <label class="upload-box" for="plantImage">
+                        <input id="plantImage" type="file" name="image" accept="image/*" required>
+                        <span data-i18n="chooseImage">Choose plant image</span>
+                    </label>
+                    <img id="imagePreview" class="image-preview" alt="Plant preview">
+                    <button class="btn btn-primary btn-full" type="submit" data-i18n="detectDisease">Detect disease</button>
+                </form>
+
+                <div class="chat-panel">
+                    <div class="chat-window" id="symptomChat">
+                        <div class="chat-message bot">Describe symptoms like yellow curling leaves, brown spots, white powder, wilting, or pests. I will suggest the likely disease and prevention.</div>
+                    </div>
+                    <form id="symptomForm" class="chat-form">
+                        <input type="text" name="symptoms" required placeholder="Example: leaves have brown spots and edges are drying">
+                        <button class="btn btn-primary" type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+            <div class="result-box" id="diseaseResult"></div>
+        </article>
+
+        <article class="tool-card advisory-card glass-card">
+            <div class="tool-heading">
+                <span class="tool-number">B</span>
+                <div>
+                    <h2 data-i18n="advisoryTitle">AI Advisory</h2>
+                    <p data-i18n="advisoryFormCopy">Ask in chat using soil, season, and crop details.</p>
+                </div>
+            </div>
+            <div class="chat-window tall" id="advisoryChat">
+                <div class="chat-message bot">Tell me your field details. Example: black soil, kharif season, cotton crop.</div>
+            </div>
+            <div class="quick-prompts">
+                <button type="button" data-advisory-prompt="black soil kharif cotton">Black soil cotton</button>
+                <button type="button" data-advisory-prompt="alluvial soil rabi wheat">Alluvial wheat</button>
+                <button type="button" data-advisory-prompt="sandy soil summer watermelon">Sandy watermelon</button>
+            </div>
+            <form id="advisoryChatForm" class="chat-form">
+                <input type="text" name="message" required placeholder="Ask: red soil kharif groundnut">
+                <button class="btn btn-primary" type="submit">Send</button>
+            </form>
+        </article>
+
+        <article class="tool-card glass-card">
+            <div class="tool-heading">
+                <span class="tool-number">C</span>
+                <div>
+                    <h2 data-i18n="weatherTitle">Weather Guide</h2>
+                    <p data-i18n="weatherFormCopy">Check current conditions and farming advice.</p>
+                </div>
+            </div>
+            <form id="weatherForm" class="form-stack">
+                <label>
+                    <span data-i18n="city">City</span>
+                    <input type="text" name="city" required placeholder="Hyderabad">
+                </label>
+                <button class="btn btn-primary btn-full" type="submit" data-i18n="checkWeather">Check weather</button>
+            </form>
+            <div class="result-box" id="weatherResult"></div>
+        </article>
+    </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
