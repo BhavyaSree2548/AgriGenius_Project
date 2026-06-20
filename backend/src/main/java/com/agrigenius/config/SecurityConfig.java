@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/",
+                                "/test",
                                 "/index.html",
                                 "/login.html",
                                 "/register.html",
@@ -43,9 +44,9 @@ public class SecurityConfig {
                                 "/api/auth/**",
                                 "/h2-console/**"
                         ).permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll()
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class));
 
         return http.build();
     }
