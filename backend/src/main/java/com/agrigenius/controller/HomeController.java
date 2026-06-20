@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public String home() {
-        return "AgriGenius Backend Running Successfully!";
-    }
-
     @GetMapping("/test")
     public String test() {
         return "Test Endpoint Working!";
